@@ -3,7 +3,7 @@
 
 :root {
   --primary-color: #0b5394;
-  --light-bg: #ffffff;
+  --light-bg: #9cf18b;
   --space: 16px;
   --radius: 8px;
 }
@@ -11,7 +11,7 @@
 .box {
   width: 320px;
   padding: var(--space);                 /* space INSIDE the border */
-  border: 3px solid var(--primary-color);/* the border itself */
+  border: 6px solid var(--primary-color);/* the border itself */
   margin: var(--space) auto;             /* space OUTSIDE; auto centers it */
   background-color: var(--light-bg);
   border-radius: var(--radius);
@@ -40,4 +40,5 @@
 .box-alt {
   padding: calc(var(--space) * 2);  /* double the inside space */
   border-width: 6px;                /* thicker border */
+  border-color: gold;     /* gold border */
 }
