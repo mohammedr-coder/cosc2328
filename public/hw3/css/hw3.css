@@ -1,0 +1,104 @@
+/* HW3 – COSC 2328 – Professor McCurry
+     Implemented by: [Mohammed Rehaan] */
+
+     :root {
+  --primary-color: #0b5394;
+  --light-bg: #f1bb8b;
+  --space: 16px;
+  --radius: 8px;
+}
+
+.box {
+  width: 320px;
+  padding: var(--space);             
+  border: 6px solid var(--primary-color);
+  margin: var(--space) auto;            
+  background-color: var(--light-bg);
+  border-radius: var(--radius);
+}
+
+
+.box h2 {
+  color: var(--primary-color);
+  margin-top: 0;              
+  margin-bottom: var(--space);
+}
+
+.box p {
+  line-height: 2.0;
+}
+
+
+.highlight {
+  background-color: #fff3b0;
+  padding: 2px 6px;
+  border-radius: 4px;
+  font-weight: bold;
+}
+
+
+.box-programminginterests {
+  width: 300px;
+  padding: calc(var(--space) * 2);  
+  border-width: 6px;                
+  border-color: rgb(255, 170, 0);    
+}
+
+.box-alt {
+  width: 150px;
+  padding: calc(var(--space) * 2);  
+  border-width: 4px;                
+  border-color: gold;    
+}
+
+
+body {
+  font-family: Georgia, serif;
+  background-color: #b5cdda;
+  color: #211a44;
+  margin: 0;
+  padding: 16px;
+
+  h1 {
+  color: #0b5394;
+  text-align: center;
+}
+
+p {
+  line-height: 1.5;
+}
+
+
+.card {
+  background-color: #ffffff;
+  border: 1px solid #cccccc;
+  border-radius: 8px;
+  padding: 12px;
+  margin: 8px 0;
+}
+
+
+.hobby1 {
+  width: 320px;
+  border: 3px solid #940b0b;
+  border-radius: 8px;
+  margin-top: 8px;
+}
+
+
+.hobby2 {
+  width: 320px;
+  border: 3px solid #940b0b;
+  border-radius: 8px;
+  margin-top: 8px;
+}
+
+#intro {
+  font-style: italic;
+  font-size: 1.1em;
+  color: #0b5394;
+}
+.link:hover { color: #c0392b; } 
+
+
+}
