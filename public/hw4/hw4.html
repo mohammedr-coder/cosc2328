@@ -7,9 +7,76 @@
 <head>
     <meta charset="utf-8">
     <meta name="author" content="Mohammed Rehaan">
+    <meta name="class" content="COSC 2328">    
+    <meta name="Professor" content="McCurry">      
     <title>HW4</title>
     <link rel="stylesheet" href="css/hw4.css">
+
 </head>
 <body>
+    <header>
+        <h1>Future Web 2026</h1>
+        <p>This is the tech conference registry portal.</p>
+    </header>
+    <main class="container">
+        <div class="event-info"> 
+            <h2>Event Details </h2>
+<img class="photo" src="images/photo.jpg" alt="A short description of the picture" width="400">
+<ul>
+    <li>Date: December 15-17, 2026</li>
+    <li>Location: Austin, Texas</li>
+    <li>Speaker: Mohammed Rehaan</li>
+</ul>
+        </div>
 
 
+        <div class="registration-form">
+        
+
+
+
+
+    <form action="https://httpbin.org/post" method="post" enctype="multipart/form-data">
+    <fieldset>
+    <legend>Attendee Details</legend>
+           <label for="fullname">Full Name</label>
+<input type="text" id="fullname" name="fullname"
+       placeholder="Enter your full name" required>
+
+<label for="email">Email</label>
+<input type="email" id="email" name="email"
+       placeholder="your.email@example.com" required>
+
+<label for="date">Date of Arrival</label>
+<input type="date" id="date" name="date"
+       placeholder="MM/DD/YYYY" required>
+  </fieldset>
+  <button type="submit">Submit</button>
+
+</form>
+
+
+        </div>
+    </main>
+
+
+  <fieldset>Session Preferences
+    <legend>Track Selection</legend>
+    
+<optgroup> 
+    <label="Frontend" for="frontend">Frontend</label>
+    <input type="checkbox" id="frontend" name="React" name= "Vue" name="CSS">
+
+    <label="Backend" for="backend">Backend</label>
+    <input type="checkbox" id="backend" name="Node.js" name= "Python" name="Docker">
+</optgroup>
+
+
+<label for="file">Upload Resume/Portfolio</label>
+<input type="file" accept=".pdf,.docx" id="file" name="file"
+       placeholder="Upload your resume or portfolio" required>
+  </fieldset>
+  <button type="submit">Submit</button>
+
+<body>
+<html>
