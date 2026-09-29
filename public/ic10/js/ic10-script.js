@@ -49,3 +49,16 @@ if ((hasAccount && isEmailVerified) || agreedToTerms) {
 } else {
     console.log("Registration blocked");
 }
+
+
+itemCount = 0;
+if (itemCount) {
+    console.log("Cart has items " + itemCount);
+} else {
+    console.log("Cart has no items");
+}
+// if itemCount has 0, and null it will be false and 5 is true.
+
+// The first condition is true and the second is false.
+console.log(null == undefined);
+console.log(null === undefined);
