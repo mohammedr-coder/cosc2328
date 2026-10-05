@@ -92,7 +92,7 @@ const orderSummary = {
 
     }
         this.getTotal(); {
-        console.log("Total: $" + this.getTotal().toFixed(2));
+        console.log("Total: $" + this.getTotal());
     }
 
 
@@ -133,7 +133,7 @@ console.log(counter());         // 2 — count was remembered between calls!
  function createOrderProcessor(storeName) {
     return function processStoreOrder(book, quantity) {
         console.log("--- Nested Functions & Closures ---");
-        return storeName + " Book title: " + book.title + " Calculated Total: " + quantity + " = $" + calculateTotal(book.price, quantity).toFixed(2);
+        return storeName + " Book title: " + book.title + " Calculated Total: " + calculateTotal(book.price, quantity);
 
     };
  }
