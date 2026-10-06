@@ -42,10 +42,11 @@ document.getElementById
 // 6.6
 
 
-addEventListener("submit")
+document.addEventListener("PlaceHolder");
 
 
 // 6.7
+
 
 
 
@@ -57,3 +58,15 @@ addEventListener("submit")
 
 
 // 6.9
+
+
+textContent = "Total: $" + product.toFixed(2);
+textContent = "Total: $" + quantity.toFixed(2);
+textContent = "Total: $" + subtotal.toFixed(2);
+textContent = "Total: $" + discount.toFixed(2);
+textContent = "Total: $" + tax.toFixed(2);
+textContent = "Total: $" + total.toFixed(2);
+
+classList.remove("results-hidden")
+
+
