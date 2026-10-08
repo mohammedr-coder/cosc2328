@@ -76,11 +76,12 @@ orderForm.addEventListener("submit", function (e) {
     e.preventDefault();
 
     if (!selectedProduct) {
-        alert("Please select a product before placeing your order.");
+        alert("Please select a product before placing your order.");
         return;
     }
 
     const total = selectedProduct.price * currentQuantity * (1 - discountRate);
+
     const orderDetails = "Order Placed Successfully!\n" +
     "Product: " + selectedProduct.name + "\n" +
     "Quantity: " + currentQuantity + "\n" +
