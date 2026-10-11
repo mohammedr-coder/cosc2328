@@ -27,7 +27,7 @@ const calculateTax = (subtotal) => {
 
 
 // 6.4
-const calculateDiscount = (subtotal, discountCode) => {
+const applyDiscount  = function(subtotal, discountCode) {
     if (discountCode in discountRates) {
         return subtotal * discountRates[discountCode];
     }
@@ -36,13 +36,16 @@ const calculateDiscount = (subtotal, discountCode) => {
 
 // 6.5
 
-const Form = document.getElementById("#form");
-const product = document.getElementById("#product");
-const quantity = document.getElementById("#quantity");
-const discountCode = document.getElementById("#discountCode");
-const subtotalForm = document.getElementById("#subtotal");
-const tax = document.getElementById("#tax");
-const total = document.getElementById("#total");
+
+const productInput = document.getElementById("product");
+const quantityInput = document.getElementById("quantity");
+const discountCodeInput = document.getElementById("discountCode");
+const product = document.getElementById("product-form");
+const quantity = document.getElementById("quantity-form");
+const discountCode = document.getElementById("discountCode-form");
+const subtotalForm = document.getElementById("subtotal-form");
+const tax = document.getElementById("tax-form");
+const total = document.getElementById("total-form");
 
 
 
@@ -51,7 +54,7 @@ const total = document.getElementById("#total");
 // 6.6
 
 
-const orderForm = document.querySelector("#order-form");
+const orderForm = document.querySelector("#orderForm");
 orderForm.addEventListener("submit", function (event) {
     event.preventDefault();
 });
@@ -59,12 +62,12 @@ orderForm.addEventListener("submit", function (event) {
 
 // 6.7
 
-const selectedProduct = productPrices.value;
+const selectedProduct = productInput.value;
 const Qualityproduct = Number(quantity.value);
 const discountCodeproduct = discountCode.value.trim();
 
 
-if (productPrices[selectedProduct] == " ") {
+if (productPrices[selectedProduct] === " ") {
     alert("Select a product");
     return;
 }
@@ -79,22 +82,22 @@ if (productPrices[Qualityproduct] < 1 || productPrices[Qualityproduct] > 10) {
 
 // 6.8
 
-const subtotal = (price * quantity);
-const discountAmount = applyDiscount(subtotal, discountCode);  
-discountedSubtotal (subtotal - discountAmount) 
-total (discountedSubtotal + tax);
+const subtotal = (productPrices * quantity);
+const discountAmount = applyDiscount (subtotal, discountCode);  
+const discountedSubtotal = (subtotal - discountAmount)
+total  = (discountedSubtotal + tax);
 
 
 
 // 6.9
 
 
-textContent = "Total: $" + product.toFixed(2);
-textContent = "Total: $" + quantity.toFixed(2);
-textContent = "Total: $" + subtotal.toFixed(2);
-textContent = "Total: $" + discount.toFixed(2);
-textContent = "Total: $" + tax.toFixed(2);
-textContent = "Total: $" + total.toFixed(2);
+product.textContent = "Total: $" + product.toFixed(2);
+quantity.textContent = "Total: $" + quantity.toFixed(2);
+subtotalForm.textContent = "Total: $" + subtotal.toFixed(2);
+discountCode.textContent = "Total: $" + discountCode.toFixed(2);
+tax.textContent = "Total: $" + tax.toFixed(2);
+total.textContent = "Total: $" + total.toFixed(2);
 
 classList.remove("results-hidden")
 
