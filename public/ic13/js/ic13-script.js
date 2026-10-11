@@ -41,7 +41,7 @@ productGallery.addEventListener("click", function (e) {
     if (card) {
         selectedProduct = {
             name: card.dataset.productName,
-            price: parseFloat(card.dataset.productPrice)
+            price: parseFloat(card.dataset.price)
 
         };
         productNameInput.value = selectedProduct.name;

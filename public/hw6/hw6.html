@@ -1,4 +1,34 @@
 <!-- HW6 – COSC 2328 – Professor McCurry
-     Implemented by: [Your Full Name] -->
+     Implemented by: Mohammed Rehaan -->
 
-     
+
+    <meta charset="utf-8">
+    <meta name="author" content="Mohammed Rehaan">
+    <meta name="class" content="COSC 2328">    
+    <meta name="Professor" content="McCurry">      
+
+<title>HW6 - Interactive Product Calculator</title>
+<link rel="stylesheet" href="css/hw6.css">
+<script defer src="js/hw6-script.js"></script>
+
+<body>
+    <header class="site-header"></header>
+    <h1>Product Order Calculator</h1>
+     <main class="container">
+     <form id="orderForm">
+           <fieldset> Order Details </fieldset>
+      <select id="product"> 
+          <option>Laptop</option>
+          <option>Monitor</option>
+          <option>Phone</option>
+          <option>Tablet</option>
+          <input type="number" id="quantity" min="1" max="10" value="1">
+          <input type="text" id="discountCode">
+           <button type="submit">Calcuate Total</button>
+           <div id="results" class="results-hidden"></div>
+     <footer class="site-footer"> Mohammed Rehaan, Course: cosc2328</footer>
+     <noscript><div class="alert">Enable JavaScript to view interactive content.</div></noscript>
+
+
+    </main>
+</body>

@@ -1,5 +1,5 @@
 // HW6 – COSC 2328 – Professor McCurry
-// Implemented by: [Your Full Name]
+// Implemented by: Mohammed Rehaan
 
 
 
@@ -14,9 +14,9 @@ const productPrices = {
 
 
 const discountRates = {
-    SAVE10 : 0.1, // 10% discount
-    SAVE20 : 0.2, // 20% discount
-    SAVE30 : 0.3  // 30% discount
+    SAVE10 : 0.1, 
+    SAVE20 : 0.2,
+    STUDENT : 0.15  
 };
 
 // 6.3
@@ -36,24 +36,53 @@ const calculateDiscount = (subtotal, discountCode) => {
 
 // 6.5
 
-document.getElementById
+const Form = document.getElementById("#form");
+const product = document.getElementById("#product");
+const quantity = document.getElementById("#quantity");
+const discountCode = document.getElementById("#discountCode");
+const subtotalForm = document.getElementById("#subtotal");
+const tax = document.getElementById("#tax");
+const total = document.getElementById("#total");
+
+
+
 
 
 // 6.6
 
 
-document.addEventListener("PlaceHolder");
+const orderForm = document.querySelector("#order-form");
+orderForm.addEventListener("submit", function (event) {
+    event.preventDefault();
+});
 
 
 // 6.7
+
+const selectedProduct = productPrices.value;
+const Qualityproduct = Number(quantity.value);
+const discountCodeproduct = discountCode.value.trim();
+
+
+if (productPrices[selectedProduct] == " ") {
+    alert("Select a product");
+    return;
+}
+
+if (productPrices[Qualityproduct] < 1 || productPrices[Qualityproduct] > 10) {
+    alert("Select a quality greater than 1, or less than 10");
+    return;
+}
 
 
 
 
 // 6.8
-// const subtotal = (price * quantity); => const discountAmount = 
-// const applyDiscount(subtotal, discountCode) => discountedSubtotal (subtotal - discountAmount)
-// => total (discountedSubtotal + tax);
+
+const subtotal = (price * quantity);
+const discountAmount = applyDiscount(subtotal, discountCode);  
+discountedSubtotal (subtotal - discountAmount) 
+total (discountedSubtotal + tax);
 
 
 
