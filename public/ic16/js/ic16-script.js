@@ -18,11 +18,11 @@ function CharacterCard(props) {
     return (
         <div className="character-card">
         <div className="image-frame">
-        <Img src={props.image} alt={props.name} />
+        <img src={props.image} alt={props.name} />
         </div>
         <h3>{props.name}</h3>
-        <p className="role">(prop.role)</p>
-        <p>(props.description)</p>
+        <p className="role">(props.role)</p>
+        <p>{props.description}</p>
         </div>
     );
 }
@@ -71,8 +71,8 @@ function App()
 
 // --- Create the root once
 
-const root = ReactDOM.createRoot(document.querySelector('root'));
-root.render(<App />);
+const root = ReactDOM.createRoot(document.querySelector('#root'));
+root.render(<App/>);
 
 
 
