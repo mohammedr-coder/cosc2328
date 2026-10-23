@@ -3,19 +3,20 @@
 
 
 
-const pokemonInput = document.querySelector("#pokemon-input");
-const statusMessage = document.querySelector("#status-message");
-const pokemonCard = document.querySelector("#pokemon-card");
+
 
 // 7.3
 
-async function seachPokemon(name) {
-    statusMessage.textContent = "Seaching...";
-    statusMessage.className = "";
-    pokemonCard.innerHTML = "";
+async function loadRoster(name) {
 
     try {
         const response = await fetch("https://pokeapi.co/api/v2/pokemon?limit=151" + name.toLowerCase().trim());
+
+        // 7.4
+        const filter = data.results.length < 7
+
+        // 7.5
+        const sorter = a.name.length - b.name.length
 
         if (!response.ok) {
             throw new Error("Pokemon not found. Check the spelling and try again");
@@ -25,31 +26,14 @@ async function seachPokemon(name) {
         renderPokemon(data);
         statusMessage.textContent = "";
     } catch (error) {
-        statusMessage.textContent = error.message;
-        statusMessage.className = "status-error";
-        pokemonCard.innerHTML = "";
+        // 7.9
+        document.querySelector("#root").innerHTML = "Something went wrong"
+        
     
     }
 }
 
-// 7.4
 
-
-document.querySelector("#btn-filter-expensive").addEventListener("click", function() {
-    const expensive = catalog.filter(function (product) {
-    return product.isExpensive();
-    });
-    renderProducts(expensive);
-    document.querySelector("#stats-container").innerHTML =
-    "<div class='stat-item'>" + expensive.length + " expensive product(s) found (over $50).</div>";
-});
-document.querySelector("#btn-calculate-total").addEventListener("click", function() {
-    const total = catalog.reduce(function (sum, product) {
-        return sum + product.price;
-    }, 0);
-    document.querySelector("#stats-container").innerHTML =
-    "<div class='stat-item' >Total catalog value: $" + total.toFixed(2) + "</div>";
-});
 
 // 7.5
 
@@ -65,9 +49,52 @@ document.querySelector("#btn-calculate-total").addEventListener("click", functio
 
 // 7.6
 
+function PokemonCard(props) {
+    return (
+        <div className="character-card">
+        <div className="image-frame">
+        <img src={props.image} alt={props.name} />
+        </div>
+        <h3>{props.name}</h3>
+        <p className="role">(props.role)</p>
+        <p>{props.description}</p>
+        </div>
+    );
+}
+
 // 7.7
+
+function PokemonRoster(props) {
+    return (
+        <div className="character-list">
+        {props.characters.map(function (pokemon, index) {
+            return (
+            <CharacterCard
+            key={index}
+            name={pokemon.name}
+            role={pokemon.role}
+            image={pokemon.image}
+            description={pokemon.description}
+            />
+        );
+    })}
+    </div>
+    );
+}
+
 
 // 7.8
 
-// 7.9
+function App(props) {
+    return (
+        <div className="character-card">
+        <div className="image-frame">
+        <img src={props.image} alt={props.name} />
+        </div>
+        <header>`Showing ${props.roster.length} short-named Pokemon, shortest name first`</header>
+        <p className="role">(props.role)</p>
+        <p>{props.description}</p>
+        </div>
+    );
+}
 

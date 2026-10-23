@@ -8,14 +8,24 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>IC15 — Pokémon Lookup</title>
+  <meta name="homework" content="HW7">
+  <meta name="author" content="Mohammed Rehaan">
+  <meta name="class" content="COSC 2328">    
+  <meta name="Professor" content="McCurry">    
+  <title>HW7 - PokeRoster</title>
   <link rel="stylesheet" href="css/hw7.css">
-  <script defer src="js/hw7-script.js"></script>
+
+    <script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
+  <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+    <script crossorigin src="https://unpkg.com/@babel/standalone@7.29.7/babel.min.js"></script>
 </head>
 <body>
+     <div id="root"></div>
+       <script type="text/babel" data-presets="react" src="js/hw7-script.js"></script>
   <header>
-    <h1>Pokémon Lookup</h1>
-    <p>fetch() + async/await, live from a real API</p>
+    <h1>HW7 - PokeRoster</h1>
+     <p id="loadingMessage">Loading the roster…</p>
+
   </header>
 
   <main id="app-container">
@@ -25,7 +35,7 @@
       <button id="btn-search">Search</button>
     </section>
 
-    <p id="status-message"></p>
+
 
     <section id="pokemon-card"></section>
   </main>
