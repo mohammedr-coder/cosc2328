@@ -4,19 +4,76 @@
 
 
 
+// 7.6
+
+function PokemonCard(props) {
+
+
+
+    return (
+        <div className="pokemon-card">
+        <div className="image-frame">
+        <img src={"https://placehold.co/150x150/4FC3F7/333333?text=" + props.name}/>
+        </div>
+        {props.name}
+        </div>
+    );
+}
+
+// 7.7
+
+function PokemonRoster(props) {
+    return (
+        <div className="character-list">
+        {props.characters.map(function (pokemon, index) {
+            return (
+            <PokemonCard
+            key={index}
+            name={pokemon.name}
+            image={pokemon.image}
+            />
+        );
+    })}
+    </div>
+    );
+}
+
+
 
 // 7.3
 
 async function loadRoster(name) {
 
     try {
-        const response = await fetch("https://pokeapi.co/api/v2/pokemon?limit=151" + name.toLowerCase().trim());
+        const response = await fetch("https://pokeapi.co/api/v2/pokemon?limit=151");
 
         // 7.4
-        const filter = data.results.length < 7
+       const filtered = data.results.filter(name).length <= 6
+
 
         // 7.5
-        const sorter = a.name.length - b.name.length
+        const sorted = data.results.sort(a.name.length - b.name.length)
+        
+
+
+        // 7.8
+
+    function App(props) {
+
+    const root = ReactDOM.createRoot(document.querySelector("#root"));
+    root.render(<App roster={sortedArray} />)
+
+    
+    return (
+        <div className="pokemon-card">
+        <div className="image-frame">
+        </div>
+        <PokemonRoster>
+        <header>`Showing ${props.roster.length} short-named Pokemon, shortest name first`</header>
+        </PokemonRoster>
+        </div>
+    );
+}
 
         if (!response.ok) {
             throw new Error("Pokemon not found. Check the spelling and try again");
@@ -36,54 +93,6 @@ async function loadRoster(name) {
 
 
 
-// 7.6
-
-function PokemonCard(props) {
-    return (
-        <div className="character-card">
-        <div className="image-frame">
-        <img src={props.image} alt={props.name} />
-        </div>
-        <h3>{props.name}</h3>
-        <p className="role">(props.role)</p>
-        <p>{props.description}</p>
-        </div>
-    );
-}
-
-// 7.7
-
-function PokemonRoster(props) {
-    return (
-        <div className="character-list">
-        {props.characters.map(function (pokemon, index) {
-            return (
-            <CharacterCard
-            key={index}
-            name={pokemon.name}
-            role={pokemon.role}
-            image={pokemon.image}
-            description={pokemon.description}
-            />
-        );
-    })}
-    </div>
-    );
-}
 
 
-// 7.8
-
-function App(props) {
-    return (
-        <div className="character-card">
-        <div className="image-frame">
-        <img src={props.image} alt={props.name} />
-        </div>
-        <header>`Showing ${props.roster.length} short-named Pokemon, shortest name first`</header>
-        <p className="role">(props.role)</p>
-        <p>{props.description}</p>
-        </div>
-    );
-}
 
