@@ -35,17 +35,6 @@ async function loadRoster(name) {
 
 
 
-// 7.5
-
-    document.querySelector("#btn-show-all").addEventListener("click", function () {
-        renderProducts(catalog);
-    });
-    document.querySelector("#btn-sort-price").addEventListener("click", function () {
-        const sorted = [...catalog].sort(function (a,b) {
-            return a.price - b.price;
-        });
-    renderProducts(sorted);
-    });
 
 // 7.6
 
