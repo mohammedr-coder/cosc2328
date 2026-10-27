@@ -52,11 +52,11 @@ const TamagotchiPet = () => {
     // ----- JSX
 
     return (
-        <div clasName="pet-card">
+        <div className="pet-card">
             <h1>Pixel</h1>
             <div className="stats">
-                <p className="stats"> 🍖 Hunger: {hunger}</p>
-                <p className="stats"> ⚡Energy: {energy}</p>
+                <p className="stat"> 🍖 Hunger: {hunger}</p>
+                <p className="stat"> ⚡Energy: {energy}</p>
             </div>
             <div className="mood">{getPetMood()}</div>
 
