@@ -55,8 +55,8 @@ const TamagotchiPet = () => {
         <div clasName="pet-card">
             <h1>Pixel</h1>
             <div className="stats">
-                <p className="stat"> 🍖 Hunger: {hunger}</p>
-                <p className="stat"> ⚡Energy: {energy}</p>
+                <p className="stats"> 🍖 Hunger: {hunger}</p>
+                <p className="stats"> ⚡Energy: {energy}</p>
             </div>
             <div className="mood">{getPetMood()}</div>
 
