@@ -1,12 +1,3 @@
-//1. The useState return's the current values and also the new value that the setter inputs. The initial values, which is the energy and hunger, it returns it in the current statement, then the setter function updates it and it re renders with the new values.
-
-//2. You write the onClick={feedPet} instead of the other one because the one without () allows react to call this thing when the user clicks, but the other one won't.
-
-//3. The thing that causes the hunger screen to update is the feed pet, and the buttons is what allows the hunger to be modified.
-
-//4. The condition that matches first is the energy and the function is returned as ok.
-
-//5. The difference between those two are that is a warning message that placed inside of the .pet-card div, and the approach is the right choice if the divs are inside one another.
 
 // IC17 – COSC 2328 – Professor McCurry
 // Implemented by: Mohammed Rehaan
