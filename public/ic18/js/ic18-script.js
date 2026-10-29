@@ -65,5 +65,5 @@ const HabitatContext = React.createContext();
 
  // --- Mount ----
 
-console.log('React version:', React.version);
-console.log('ReactDOM available:', typeof ReactDOM !== 'undefined');
+const root = ReactDOM.createRoot(document.getElementById('root'));
+root.render(<App />);
