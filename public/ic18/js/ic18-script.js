@@ -1,3 +1,12 @@
+// 1. Prop drilling is when you pass a component through every layer, and a situation where it could be a problem is when it creates unnecessary coupling.
+
+// 2. The three things that you need to use the Context API are to create a shared context using react, provide context to a component tree using the Provider component, and consume shared context to any child component using react without receiving props.
+
+// 3. ModeToggle gets access by the context Provider that handled the connection, it reads the sharded context and calls the sharded function.
+
+// 4. It must be called at the top of the file, and it is created at the top of the file because it created the context object, and creates the thing to allow connections to state and wrapping the component tree.
+
+// 5. The thing that would change is that there would be another const and then mode, using the react use context.
 
 // IC18 – COSC 2328 – Professor McCurry
 // Implemented by: Mohammed Rehaan
