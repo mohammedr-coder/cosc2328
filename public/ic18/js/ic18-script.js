@@ -3,7 +3,8 @@
 // Implemented by: Mohammed Rehaan
 
 
-
+console.log('React version:', React.version);
+console.log('ReactDOM available:', typeof ReactDOM !== 'undefined');
 
 // ---- Context ----
 
@@ -25,7 +26,7 @@ const HabitatContext = React.createContext();
  const HabitatView = () => {
         const { mode } = React.useContext(HabitatContext);
     return (
-        <div clasName="scene">
+        <div className="scene">
             {mode === 'day' ? '☀️ 🌿 🐾 ':' 🌙 ⭐ 🐾 '}
         </div>
     );
@@ -36,7 +37,7 @@ const HabitatContext = React.createContext();
     // Consumes both mode and toggleMode - no props received from App
     const { mode, toggleMode } = React.useContext(HabitatContext);
     return (
-        <div clasName="controls">
+        <div className="controls">
             <button onClick={toggleMode}>
                 {mode === 'day' ? 'Switch to Night Mode' : 'Switch to Day Mode'}
             </button>
