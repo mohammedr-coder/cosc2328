@@ -6,16 +6,25 @@
     // 8.6
     function TaskCard(props) {
 
-        'className=';{"badge " + props.task.priority.toLowerCase()}
-        <button onChange='props.onDelete'></button>
+        return (
+        
+       
+        <div className={"badge " + props.task.priority.toLowerCase()}>
+        <button onClick={() => props.onDelete(props.task.id)}>Delete</button>
+        </div>
+       
+        
+        );
     };
 
 
     // 8.7
     function TaskList(props) {
-    if (props.tasks.length === 0) return  <p onChange="No tasks yet"></p>
+    if (props.tasks.length === 0) 
+        {return  <p onChange="No tasks yet"></p>}
 
-    return <div>
+    
+    <div>
 
     <TaskList onDelete={props.onDelete}></TaskList>
     <TaskList  task={task}></TaskList>
@@ -27,48 +36,55 @@
 };
 
 // 8.8
-const App = () => {
+function App() {
 
 
-    [ tasks, setTasks ] = React.useState('');
-    { id: Date.now(), name; taskName.trim(), priority }
+    const [ tasks, setTasks ] = React.useState([]);
+    const newTask = { id: Date.now(), name: taskName.trim(), priority }
      setTasks([...tasks, newTask])
-     `${tasks.length} task${tasks.length === 1 ? '' : 's'}`
-    
+     setTaskName('');
+     setPriority('Medium');
+
+    <p>className=`${tasks.length} task${tasks.length === 1 ? '' : 's'}`</p>
 
     // 8.3
 
     const [taskName, setTaskName] = React.useState(''); 
-    <input type="text"> value={taskName} && onChange={e => setTaskName(e.target.value)}</input>
+    <input type="text" 
+    value={taskName}
+     onChange={e => setTaskName(e.target.value)}>
+     </input>
     console.log(taskName)
 
     // 8.4
 
     const [priority, setPriority] = React.useState('Medium');
-    <select> value={priority} && onChange={e => setPriority(e.target.value)}  
-    <option onChange='Low'> </option>
-    <option onChange='Medium'> </option>
-    <option onChange='High'> </option>
+    <select value={priority} onChange={e => setPriority(e.target.value)}>
+    <option value='Low'>Low </option>
+    <option value='Medium'>Medium </option>
+    <option value='High'>High </option>
     </select>
 
 
 
     // 8.5
     const [error, setError] = React.useState(''); 
-    if (taskName.trim()) return setError('Task name cannot be empty.')
+    if (taskName.trim() === '') return setError('Task name cannot be empty.')
     setError('')
     {error && <p className="error-message">{error}</p>}
 
 
     // 8.9
-    function deleteTask() {
-        tasks.filter(t => t.id !== id)
+    function deleteTask(id) {
+        
+        tasks.filter(t => t.id !== id) 
+        const clearAll = () => setTasks([]);
 
         
-            
-
     };
 
+    
+    <TaskList tasks={tasks} onDelete={tasks.length}/>
 
 
 };
