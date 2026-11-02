@@ -3,7 +3,48 @@
 
 
 
-    // 8.6
+
+
+
+// 8.8
+function App() {
+
+
+    const [ tasks, setTasks ] = React.useState([]);
+
+
+    // 8.3
+
+    const [ taskName, setTaskName] = React.useState('');
+    <input type="text" value={taskName} onChange={e => setTaskName(e.target.value)}> </input>
+    console.log(taskName)
+
+    // 8.4
+
+    const [ priority, setPriority] = React.useState('Medium');
+    <select value={priority} onChange={e => setPriority(e.target.value)}>
+    <option value='Low'>Low </option>
+    <option value='Medium'>Medium </option>
+    <option value='High'>High </option>
+    </select>
+
+
+
+    // 8.5
+    const [ error, setError] = React.useState(''); 
+    if (taskName.trim() === '') return setError('Task name cannot be empty.')
+    setError('')
+    {error && <p className="error-message">{error}</p>}
+
+    // 8.8
+    const newTask = { id: Date.now(), name: taskName.trim(), priority }
+     setTasks([...tasks, newTask])
+     setTaskName('');
+     setPriority('Medium');
+
+    <p>className=`${tasks.length} task${tasks.length === 1 ? '' : 's'}`</p>
+
+        // 8.6
     function TaskCard(props) {
 
         return (
@@ -47,45 +88,6 @@
     <TaskList tasks={tasks} onDelete={deleteTask}/>
 
 
-
-
-// 8.8
-function App() {
-
-
-    const [ tasks, setTasks ] = React.useState([]);
-
-
-    // 8.3
-
-    const [ taskName, setTaskName] = React.useState('');
-    <input type="text" value={taskName} onChange={e => setTaskName(e.target.value)}> </input>
-    console.log(taskName)
-
-    // 8.4
-
-    const [ priority, setPriority] = React.useState('Medium');
-    <select value={priority} onChange={e => setPriority(e.target.value)}>
-    <option value='Low'>Low </option>
-    <option value='Medium'>Medium </option>
-    <option value='High'>High </option>
-    </select>
-
-
-
-    // 8.5
-    const [ error, setError] = React.useState(''); 
-    if (taskName.trim() === '') return setError('Task name cannot be empty.')
-    setError('')
-    {error && <p className="error-message">{error}</p>}
-
-    // 8.8
-    const newTask = { id: Date.now(), name: taskName.trim(), priority }
-     setTasks([...tasks, newTask])
-     setTaskName('');
-     setPriority('Medium');
-
-    <p>className=`${tasks.length} task${tasks.length === 1 ? '' : 's'}`</p>
 
 };
 
