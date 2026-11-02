@@ -2,8 +2,6 @@
 // Implemented by: Mohammed Rehaan
 
 
-const [ tasks, setTasks ] = React.useState([]);
-
 
     // 8.6
     function TaskCard(props) {
@@ -55,7 +53,7 @@ const [ tasks, setTasks ] = React.useState([]);
 function App() {
 
 
-    
+    const [ tasks, setTasks ] = React.useState([]);
 
 
     // 8.3
