@@ -23,42 +23,48 @@
     if (props.tasks.length === 0) 
         {return  <p onChange="No tasks yet"></p>}
 
-    
+
     <div>
 
     <TaskList onDelete={props.onDelete}></TaskList>
     <TaskList  task={task}></TaskList>
     <TaskList key={task.id}></TaskList>
-    </div>
-    
-        
+    </div>     
 
 };
+
+
+    // 8.9
+    function deleteTask(id) {
+        
+        setTasks(tasks.filter(t => t.id !== id));
+    
+    };
+        
+        const clearAll = () => {setTasks([])}
+
+    
+    <TaskList tasks={tasks} onDelete={deleteTask}/>
+
+
+
 
 // 8.8
 function App() {
 
 
     const [ tasks, setTasks ] = React.useState([]);
-    const newTask = { id: Date.now(), name: taskName.trim(), priority }
-     setTasks([...tasks, newTask])
-     setTaskName('');
-     setPriority('Medium');
 
-    <p>className=`${tasks.length} task${tasks.length === 1 ? '' : 's'}`</p>
 
     // 8.3
 
-    const [taskName, setTaskName] = React.useState(''); 
-    <input type="text" 
-    value={taskName}
-     onChange={e => setTaskName(e.target.value)}>
-     </input>
+    const [ taskName, setTaskName] = React.useState('');
+    <input type="text" value={taskName} onChange={e => setTaskName(e.target.value)}> </input>
     console.log(taskName)
 
     // 8.4
 
-    const [priority, setPriority] = React.useState('Medium');
+    const [ priority, setPriority] = React.useState('Medium');
     <select value={priority} onChange={e => setPriority(e.target.value)}>
     <option value='Low'>Low </option>
     <option value='Medium'>Medium </option>
@@ -68,30 +74,20 @@ function App() {
 
 
     // 8.5
-    const [error, setError] = React.useState(''); 
+    const [ error, setError] = React.useState(''); 
     if (taskName.trim() === '') return setError('Task name cannot be empty.')
     setError('')
     {error && <p className="error-message">{error}</p>}
 
+    // 8.8
+    const newTask = { id: Date.now(), name: taskName.trim(), priority }
+     setTasks([...tasks, newTask])
+     setTaskName('');
+     setPriority('Medium');
 
-    // 8.9
-    function deleteTask(id) {
-        
-        tasks.filter(t => t.id !== id) 
-        const clearAll = () => setTasks([]);
-
-        
-    };
-
-    
-    <TaskList tasks={tasks} onDelete={tasks.length}/>
-
+    <p>className=`${tasks.length} task${tasks.length === 1 ? '' : 's'}`</p>
 
 };
-
-
-
-
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(<App />);
