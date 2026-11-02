@@ -34,6 +34,17 @@
 };
 
 
+    // 8.9
+    function deleteTask(id) {
+        
+        setTasks(tasks.filter(t => t.id !== id));
+    
+    };
+        
+        const clearAll = () => {setTasks([])}
+
+    
+    <TaskList tasks={tasks} onDelete={deleteTask}/>
 
 
 
@@ -75,19 +86,6 @@ function App() {
      setPriority('Medium');
 
     <p>className=`${tasks.length} task${tasks.length === 1 ? '' : 's'}`</p>
-
-        // 8.9
-    function deleteTask(id) {
-        
-        setTasks(tasks.filter(t => t.id !== id));
-    
-    };
-        
-        const clearAll = () => {setTasks([])}
-
-    
-    <TaskList tasks={tasks} onDelete={deleteTask}/>
-
 
 };
 
