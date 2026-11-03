@@ -3,18 +3,36 @@
 
 
 // Step 11
-{/* <dl id="credentials"></dl> */}
+async function loadCredentials() {
+    const res  = await fetch('/hw9/credentials');
+    const data = await res.json();
+    const dl = document.getElementById('credentials');
+    dl.innerHTML = '';
+}
+
+    <dl id="credentials"></dl>
 
 
 // Step 12
-{/* <li class="empty-msg">No cases filed yet.</li> */}
+async function loadCases() {
+    const res  = await fetch('/hw9/cases');
+    const data = await res.json();
+    const ul = document.getElementById('cases');
+    ul.innerHTML = '';
+}
+<li class="empty-msg">No cases filed yet.</li> 
 
 
 // Step 13
-{/* <button id="log-btn"></button>
-<input id="suspect"></input>
-<input id="location"></input>
-<textarea id="notes"></textarea>  */}
+click.addEventListener('click', async () => {
+    const suspect  = document.getElementById('suspect').value;
+    const location = document.getElementById('location').value;
+    const notes    = document.getElementById('notes').value;
 
+{/* <button id="log-btn">Log Case</button>
+<input id="suspect" placeholder="Suspect Name"></input>
+<input id="location" placeholder="Location"></input>
+<textarea id="notes" placeholder="Notes"></textarea>  */}
+}); 
 
 
