@@ -1,15 +1,19 @@
 ﻿// IC1 – COSC 2328 – Professor McCurry
 // Implemented by: Mohammed Rehaan
 
-require('dotenv').config();                              // NEW — IC19: read .env and load values into process.env
 
-const express = require("express");                       // load the Express web framework
-const path    = require("path");                          // built-in Node module for working with file paths
+require('dotenv').config();                              // NEW — IC19: read .env and load values into process.env
+const express = require("express");                      // load the Express web framework
+const path    = require("path");                         // built-in Node module for working with file paths
 const app     = express();                               // create the Express application
 // const PORT    = 3000;                                    // the port your browser connects to
-const PORT = process.env.PORT || 3000;                  // NEW — IC19: use PORT from .env, fall back to 3000
+const PORT    = process.env.PORT || 3000;               // NEW — IC19: use PORT from .env, fall back to 3000
 
 app.use(express.static(path.join(__dirname, "public"))); // serve every file in public/ as a static file
+
+app.listen(PORT, "0.0.0.0", () =>                        // 0.0.0.0 makes the server reachable from the droplet
+  console.log(`Running on http://localhost:${PORT}`)
+);
 
 
 // IC19 — mission status route
@@ -27,7 +31,3 @@ app.get('/ic19/config', (req, res) => {                  // NEW — IC19: GET ro
   });
 });
 
-
-app.listen(PORT, "0.0.0.0", () =>                        // 0.0.0.0 makes the server reachable from the droplet (IC2)
-  console.log(`Running on http://localhost:${PORT}`)
-);
