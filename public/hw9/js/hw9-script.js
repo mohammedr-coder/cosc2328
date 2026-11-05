@@ -8,9 +8,10 @@ async function loadCredentials() {
     const data = await res.json();
     const dl = document.getElementById('credentials');
     dl.innerHTML = '';
+    <dl id="credentials"></dl>
 }
 
-    <dl id="credentials"></dl>
+
 
 
 // Step 12
@@ -24,15 +25,17 @@ async function loadCases() {
 
 
 // Step 13
-click.addEventListener('click', async () => {
-    const suspect  = document.getElementById('suspect').value;
-    const location = document.getElementById('location').value;
-    const notes    = document.getElementById('notes').value;
+document.getElementById('log-btn').addEventListener('click', async () => {
+    const Suspect  = document.getElementById('Suspect').value;
+    const Location = document.getElementById('Location').value;
+    const Notes    = document.getElementById('Notes').value;
 
-{/* <button id="log-btn">Log Case</button>
-<input id="suspect" placeholder="Suspect Name"></input>
+ <button id="log-btn">Log Case
+<input id="suspect" placeholder="Suspect"></input>
 <input id="location" placeholder="Location"></input>
-<textarea id="notes" placeholder="Notes"></textarea>  */}
+<textarea id="notes" placeholder="Notes"></textarea> 
+</button>
+
 }); 
 
 

@@ -13,7 +13,11 @@ const PORT    = process.env.PORT || 3000;               // NEW — IC19: use POR
 
 
 app.use(express.json());
+
 app.use("/ic20", require("./routes/ic20-routes"));
+
+app.use('/hw9', require('./routes/hw9-routes'));  // NEW — HW9: mount hw9 router
+
 
 app.use(express.static(path.join(__dirname, "public"))); // serve every file in public/ as a static file
 
