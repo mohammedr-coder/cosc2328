@@ -8,8 +8,16 @@ async function loadCredentials() {
     const data = await res.json();
     const dl = document.getElementById('credentials');
     dl.innerHTML = '';
-    <dl id="credentials"></dl>
-}
+    Object.entries(data).forEach(([key, value]) => {
+    const dt = document.createElement('dt');
+    const dd = document.createElement('dd');
+    dt.textContent = key;
+    dd.textContent = value;
+    dl.appendChild(dt);
+    dl.appendChild(dd);
+    }
+)}
+
 
 
 
@@ -20,22 +28,42 @@ async function loadCases() {
     const data = await res.json();
     const ul = document.getElementById('cases');
     ul.innerHTML = '';
+    data.forEach((m) => {
+        const li = document.createElement('li');
+        li.innerHTML = `<p class="name">${m.suspect}</p><p class="dest">${m.location}</p>`;
+        ul.appendChild(li);
+    });
+    if (data.length === 0) {
+        const li = document.createElement('li');
+        li.classList.add('empty-msg');
+        li.textContent = 'No cases filed yet.';
+        ul.appendChild(li);
+    }
 }
-<li class="empty-msg">No cases filed yet.</li> 
+
 
 
 // Step 13
-document.getElementById('log-btn').addEventListener('click', async () => {
-    const Suspect  = document.getElementById('Suspect').value;
-    const Location = document.getElementById('Location').value;
-    const Notes    = document.getElementById('Notes').value;
+document.getElementById('log-btn').addEventListener('click', async (e) => {
+  e.preventDefault();
+    const suspect  = document.getElementById('suspect').value;
+    const location = document.getElementById('location').value;
+    const notes    = document.getElementById('notes').value;
 
- <button id="log-btn">Log Case
-<input id="suspect" placeholder="Suspect"></input>
-<input id="location" placeholder="Location"></input>
-<textarea id="notes" placeholder="Notes"></textarea> 
-</button>
+  await fetch('/hw9/cases', {
+    method:  'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({ suspect, location, notes })
 
-}); 
+  });
+
+
+  });
+
+    loadCredentials();
+    loadCases();
+
+
+
 
 
