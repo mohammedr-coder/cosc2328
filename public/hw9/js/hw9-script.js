@@ -26,7 +26,7 @@ async function loadCredentials() {
 async function loadCases() {
     const res  = await fetch('/hw9/cases');
     const data = await res.json();
-    const ul = document.getElementById('cases');
+    const ul = document.getElementById('case-list');
     ul.innerHTML = '';
     data.forEach((m) => {
         const li = document.createElement('li');

@@ -10,6 +10,7 @@ let nextId = 1;
 // GET /hw9/credentials — return detective clearance from .env
 router.get('/credentials', (req, res) => {
   // Your code here
+    
     res.json({
         license: process.env.PI_LICENSE,
         station: process.env.STATION_NAME,
@@ -18,6 +19,10 @@ router.get('/credentials', (req, res) => {
 
 });
 
+
+router.get('/cases', (req, res) => {
+  res.json(cases);
+});
 
 router.post('/cases', (req, res) => {
   const { suspect, location, notes } = req.body;
