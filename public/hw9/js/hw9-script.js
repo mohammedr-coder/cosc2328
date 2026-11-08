@@ -28,17 +28,24 @@ async function loadCases() {
     const data = await res.json();
     const ul = document.getElementById('case-list');
     ul.innerHTML = '';
-    data.forEach((m) => {
-        const li = document.createElement('li');
-        li.innerHTML = `<p class="name">${m.suspect}</p><p class="dest">${m.location}</p>`;
-        ul.appendChild(li);
-    });
     if (data.length === 0) {
         const li = document.createElement('li');
         li.classList.add('empty-msg');
         li.textContent = 'No cases filed yet.';
         ul.appendChild(li);
+        return;
     }
+    data.forEach((m) => {
+        const li = document.createElement('li');
+        li.innerHTML = 
+        `<div class="case-id">${m.id}</div>
+        <div class="case-suspect">${m.suspect}</div>
+        <div class="case-location">${m.location}</div><div class="case-notes">${m.notes || ''}</div>
+        <div class="case-ts">${new Date(m.timestamp).toLocaleString()}</div>`;
+
+        ul.appendChild(li);
+    });
+    
 }
 
 

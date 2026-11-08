@@ -29,7 +29,7 @@ router.post('/cases', (req, res) => {
     if (!suspect || !location) {
     return res.status(400).json({ error: 'Suspect and location required' });
   }
-  const newCase = { id: nextId++, suspect, location, notes };
+  const newCase = { id: nextId++, suspect, location, notes, timestamp: new Date().toISOString() };
     cases.push(newCase);
   res.status(201).json(newCase);
 });
