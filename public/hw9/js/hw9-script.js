@@ -63,12 +63,18 @@ document.getElementById('log-btn').addEventListener('click', async (e) => {
     body: JSON.stringify({ suspect, location, notes })
 
   });
-
+  if (!res.ok) {
+    const err = await res.json();
+    alert(err.error);
+    return;
+    }
+    
+    loadCredentials();
+    loadCases();
 
   });
 
-    loadCredentials();
-    loadCases();
+
 
 
 
