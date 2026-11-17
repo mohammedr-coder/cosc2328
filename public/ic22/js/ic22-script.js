@@ -6,13 +6,13 @@
 async function loadStudents() {
 
     const response = await fetch('/ic22/students');
-    const students = await response.json();
+    const student = await response.json();
 
 
     const list = document.getElementById('student-list');
     list.innerHTML = '';
 
-    students.forEach(student => {
+    student.forEach(student => {
         const li = document.createElement('li');
         li.textContent = `${student.firstName} ${student.lastName} - ${student.classification}, ${student.major}`;
         list.appendChild(li);
