@@ -1,0 +1,27 @@
+// IC23 – COSC 2328 – Professor McCurry
+// Implemented by: Mohammed Rehaan
+
+const express = require('express');
+const router  = express.Router();
+const db      = require('../db');
+
+// routes go here
+
+router.post('/students', (req, res) => {
+  const { first_name, last_name, classification, major } = req.body;
+
+  if (!first_name || !last_name) {
+    return res.status(400).json({ error: 'First name and last name are required.' });
+  }
+
+  db.run(
+    'INSERT INTO students (first_name, last_name, classification, major) VALUES (?, ?, ?, ?)',
+    [first_name, last_name, classification, major],
+    function (err) {
+      if (err) return res.status(500).json({ error: err.message });
+      res.status(201).json({ id: this.lastID, first_name, last_name, classification, major });
+    }
+  );
+});
+
+module.exports = router;

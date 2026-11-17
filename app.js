@@ -20,6 +20,8 @@ app.use('/hw9', require('./routes/hw9-routes'));  // NEW — HW9: mount hw9 rout
 
 app.use("/ic22", require("./routes/ic22-routes"));
 
+app.use("/ic23", require("./routes/ic23-routes"));
+
 
 app.use(express.static(path.join(__dirname, "public"))); // serve every file in public/ as a static file
 
