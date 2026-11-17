@@ -14,7 +14,7 @@ async function loadStudents() {
 
     student.forEach(student => {
         const li = document.createElement('li');
-        li.textContent = `${student.firstName} ${student.lastName} - ${student.classification}, ${student.major}`;
+        li.textContent = `${student.first_name} ${student.last_name} - ${student.classification}, ${student.major}`;
         list.appendChild(li);
     });
 
@@ -29,7 +29,7 @@ async function loadStudents() {
         if (student.message) {
             result.textContent = student.message;
         } else {
-            result.textContent = `${student.firstName} ${student.lastName} - ${student.classification}, ${student.major}`;
+            result.textContent = `${student.first_name} ${student.last_name} - ${student.classification}, ${student.major}`;
         }
     });
 
