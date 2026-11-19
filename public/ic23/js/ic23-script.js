@@ -26,20 +26,16 @@ async function loadStudents() {
 }
 
 
-document.getElementById('add-btn').addEventListener('submit', async () => {
-    const first_name      = document.getElementById('first_name').value.trim();
-    const last_name       = document.getElementById('last_name').value.trim();
-    const classification  = document.getElementById('classification').value.trim();
-    const major           = document.getElementById('major').value.trim();
-    const result          = document.getElementById('result').value.trim();
-
-    if (!first_name || !last_name) { 
-    result.className = 'error';
-    result.textContent = 'First name and last name are required';
-    return; 
-    
-    
-}
+document.getElementById('add-btn').addEventListener('click', async () => 
+    { const first_name = document.getElementById('first-name').value.trim(); 
+        const last_name = document.getElementById('last-name').value.trim(); 
+        const classification = document.getElementById('classification').value; 
+        const major = document.getElementById('major').value.trim(); 
+        const result = document.getElementById('add-result'); 
+        if (!first_name || !last_name) { result.className = 'error'; 
+            result.textContent = 'First name and last name are required.'; 
+            return; 
+        }
 
 
  try { 
