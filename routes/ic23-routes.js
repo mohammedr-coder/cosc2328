@@ -16,7 +16,7 @@ router.get('/students', (req, res) => {
 });
 
 
-// POST /ic23/students — insert a new student 
+// POST /ic23/students — insert a new student
 router.post('/students', (req, res) => {
   const { first_name, last_name, classification, major } = req.body;
 
