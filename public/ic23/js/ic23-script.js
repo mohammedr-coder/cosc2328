@@ -62,3 +62,10 @@ document.getElementById('add-btn').addEventListener('submit', async () => {
                 result.textContent = `Network error: 
                 ${err.message}`; } }); 
                 loadStudents();
+
+                const res = await fetch('/ic23/students', {
+  method:  'POST',
+  headers: { 'Content-Type': 'application/json' },
+  body:    JSON.stringify({ first_name, last_name, classification, major })
+});
+const data = await res.json();
