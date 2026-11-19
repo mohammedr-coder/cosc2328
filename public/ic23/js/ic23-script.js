@@ -31,7 +31,7 @@ document.getElementById('add-btn').addEventListener('submit', async () => {
     const last_name       = document.getElementById('last_name').value.trim();
     const classification  = document.getElementById('classification').value.trim();
     const major           = document.getElementById('major').value.trim();
-    const result          = document.getElementById('result');
+    const result          = document.getElementById('result').value.trim();
 
     if (!first_name || !last_name) { 
     result.className = 'error';
