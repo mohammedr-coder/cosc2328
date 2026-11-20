@@ -1,3 +1,8 @@
+// 1. The three options that fetch() POST require are
+// 2. The db.run callback uses function(err) instead of the (err) =>, because 
+// 3. The re-fetch pattern is 
+// 4. The difference in the POST, and the GET is that the POST has 
+
 // IC23 – COSC 2328 – Professor McCurry
 // Implemented by: Mohammed Rehaan
 
