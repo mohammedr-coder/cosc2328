@@ -1,7 +1,7 @@
 // 1. The three options that fetch() POST require are
 // 2. The db.run callback uses function(err) instead of the (err) =>, because 
-// 3. The re-fetch pattern is 
-// 4. The difference in the POST, and the GET is that the POST has 
+// 3. The re-fetch pattern is used to update the list of students after a new student is added. After the POST request is successful, loadStudents() is called to fetch the updated list of students and display them in the UI.
+// 4. The difference in the POST, and the GET is that the POST has header, payload, and response while the GET does not.
 
 // IC23 – COSC 2328 – Professor McCurry
 // Implemented by: Mohammed Rehaan

@@ -22,6 +22,10 @@ app.use("/ic22", require("./routes/ic22-routes"));
 
 app.use("/ic23", require("./routes/ic23-routes"));
 
+app.use(express.urlencoded({ extended: true }));
+
+app.use('/hw10', require('./routes/hw10-routes'));  // NEW — HW10: mount hw10 router
+
 
 app.use(express.static(path.join(__dirname, "public"))); // serve every file in public/ as a static file
 
