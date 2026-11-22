@@ -1,10 +1,63 @@
 // HW10 – COSC 2328 – Professor McCurry
 // Implemented by: Mohammed Rehaan
 
+const express = require('express');
+const router  = express.Router();
+const db      = require('../db');
+
+
+
+
+
 
 function buildPage(monsters, message, error, battle) {
   // ... returns a complete HTML document string
+
   
+  return `<!DOCTYPE html>
+    <html>
+    <html lang="en">
+    <head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="/hw10/css/hw10.css"></link>
+    </head>
+<body>
+
+    <div class = 'monsters'> 
+    <p>Name: ${m}</p>
+    <p>species: ${m}</p>
+    <p>attack: ${m}</p>
+    <p>defence: ${m}</p>
+    <p>id: ${m}</p>
+    </div>
+    
+    ${message ? `<p class="banner-success">${message}</p>` : ''}
+
+    ${error ? `<p class="banner-error">${error}</p>` : ''}
+
+    <div action="/hw10/recruit" method="POST"> 
+    <input id="name" type="text">
+    <input id="species" type="text">
+    <input id="attack" type="number">
+    <input id="defence" type="number">
+    <input id="hp" type="number">
+    </div>
+
+    
+    <div action="/hw10/retire" method="POST">  </div>
+
+    <div action="/hw10/battle" method="POST"> 
+         ${battle ? `<div class="battle-results">...</div>` : ''} 
+    </div>
+
+    
+<body>
+</html>`
+
+
+
 }
 
 
@@ -68,3 +121,6 @@ router.post('/battle', (req, res) => {
     res.send(html);
   });
 });
+
+
+module.exports = router;
