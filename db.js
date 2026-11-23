@@ -13,7 +13,14 @@ const db = new sqlite3.Database(path.join(__dirname, 'voyage.db'), sqlite3.OPEN_
 
 
 
-db.run(`
+
+
+
+
+db.serialize(() => {
+  // 1. CREATE TABLE IF NOT EXISTS monsters ...
+  // 2. db.get('SELECT COUNT(*) AS count FROM monsters', ...) seed
+  db.run(`
   CREATE TABLE IF NOT EXISTS monsters (
     id      INTEGER PRIMARY KEY AUTOINCREMENT,
     name    TEXT    NOT NULL,
@@ -37,5 +44,7 @@ db.get('SELECT COUNT(*) AS count FROM monsters', (err, row) => {
     stmt.finalize();
   }
 });
+});
 
 module.exports = db;
+

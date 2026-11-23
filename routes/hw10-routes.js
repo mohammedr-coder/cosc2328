@@ -15,7 +15,7 @@ function buildPage(monsters, message, error, battle) {
 
   
   return `<!DOCTYPE html>
-    <html>
+
     <html lang="en">
     <head>
   <meta charset="UTF-8">
@@ -23,33 +23,54 @@ function buildPage(monsters, message, error, battle) {
 
     <link rel="stylesheet" href="/hw10/css/hw10.css"></link>
     </head>
-<body>
+    <body>
 
-    <div class = 'monsters'> 
-    <p>Name: ${m}</p>
-    <p>species: ${m}</p>
-    <p>attack: ${m}</p>
-    <p>defence: ${m}</p>
-    <p>id: ${m}</p>
+
+    ${monsters.map(m => `
+    <div class="monsters">
+    <p>Name: ${m.name}</p>
+    <p>Species: ${m.species}</p>
+    <p>Attack: ${m.attack}</p>
+    <p>Defense: ${m.defense}</p>
+    <p>HP: ${m.hp}</p>
+    <p>ID: ${m.id}</p>
     </div>
+    `)}
+
     
     ${message ? `<p class="banner-success">${message}</p>` : ''}
 
     ${error ? `<p class="banner-error">${error}</p>` : ''}
 
-    <div action="/hw10/recruit" method="POST"> 
-    <input id="name" type="text">
-    <input id="species" type="text">
-    <input id="attack" type="number">
-    <input id="defence" type="number">
-    <input id="hp" type="number">
-    </div>
+    <form action="/hw10/recruit" method="POST"> 
+    <button type="submit">Recruit</button>
+    <input id="name"      type="text"   name="name">
+    <input id="species"      type="text"   name="species">
+    <input id="attack"      type="number"   name="attack">
+    <input id="defence"      type="number"   name="defence">
+    <input id="hp"      type="number"   name="hp">
+
+    </form>
+
+
 
     
-    <div action="/hw10/retire" method="POST">  </div>
+    <div action="/hw10/retire" method="POST">
+    <input type="number" id = "retire-id">  
+    <button type="submit">retire</button>
+    </div>
 
     <div action="/hw10/battle" method="POST"> 
-         ${battle ? `<div class="battle-results">...</div>` : ''} 
+        <button type="submit">battle</button>
+         ${battle ? `<div class="battle-results">
+        <p>Name: ${monster.name}</p>
+        <p>Species: ${monster.species}</p>
+        <p>Attack: ${monster.attack}</p>
+        <p>Defence: ${monster.defence}</p>
+        <p>Hp: ${monster.hp}</p>
+        <p>Id: ${monster.id}</p>
+            
+            </div>` : ''} 
     </div>
 
     
