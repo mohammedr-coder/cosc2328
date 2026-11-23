@@ -47,7 +47,7 @@ function buildPage(monsters, message, error, battle) {
     <input id="name"      type="text"   name="name">
     <input id="species"      type="text"   name="species">
     <input id="attack"      type="number"   name="attack">
-    <input id="defence"      type="number"   name="defence">
+    <input id="defense"      type="number"   name="defense">
     <input id="hp"      type="number"   name="hp">
 
     </form>
@@ -60,7 +60,7 @@ function buildPage(monsters, message, error, battle) {
     <button type="submit">retire</button>
     </div>
 
-    <div action="/hw10/battle" method="POST"> 
+    <form action="/hw10/battle" method="POST"> 
         <button type="submit">battle</button>
          ${battle ? `<div class="battle-results">
         <p>Name: ${monster.name}</p>
@@ -71,7 +71,7 @@ function buildPage(monsters, message, error, battle) {
         <p>Id: ${monster.id}</p>
             
             </div>` : ''} 
-    </div>
+    </form>
 
     
 <body>
