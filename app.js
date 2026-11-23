@@ -10,7 +10,23 @@ const app     = express();                               // create the Express a
 const PORT    = process.env.PORT || 3000;               // NEW — IC19: use PORT from .env, fall back to 3000
 
 
+const cookieParser = require('cookie-parser');     // ADD — IC24
+const session      = require('express-session');   // ADD — IC24
 
+app.use(express.json());
+
+app.use(express.static(path.join(__dirname, "public")));
+
+
+app.use(express.urlencoded({ extended: true }));
+
+app.use(cookieParser());                           // ADD — IC24
+app.use(session({                                  // ADD — IC24
+  secret: 'ic24-secret-key',
+  resave: false,
+  saveUninitialized: false,
+  cookie: { httpOnly: true, maxAge: 1000 * 60 * 60 }
+}));
 
 app.use(express.json());
 
@@ -22,9 +38,13 @@ app.use("/ic22", require("./routes/ic22-routes"));
 
 app.use("/ic23", require("./routes/ic23-routes"));
 
+app.use("/ic24", require("./routes/ic24-routes")); // ADD - IC24
+
 app.use(express.urlencoded({ extended: true }));
 
 app.use('/hw10', require('./routes/hw10-routes'));  // NEW — HW10: mount hw10 router
+
+app.use('/api/hw11', require('./routes/hw11-routes'));  // NEW — HW11
 
 
 app.use(express.static(path.join(__dirname, "public"))); // serve every file in public/ as a static file
